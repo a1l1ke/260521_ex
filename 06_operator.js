@@ -1,6 +1,6 @@
 // 연산자 -> 1개 이상의 피연산자를 대상으로 변환, 계산 -> 그 결과값
 
-// 산술연산자 (+, -, *, /, %)
+// 산술연산자 (+, -, *, /, %, **)
 // 숫자
 console.log(30 + 7);
 console.log(30 - 7);
@@ -68,3 +68,66 @@ console.log(b1 || b2); // true
 // && -> 맨 처음이 false. -> a && b => b가? => 무조건 false
 // 밥먹고 와서...
 // (증감 연산자로 증명할 것이다)
+
+// 증감 연산자
+console.log("---");
+let x = 1;
+x++; // x += 1, x = x + 1.
+console.log(x); // 2
+x--; // x -= 1, x = x - 1.
+console.log(x); // 1
+// 앞에 붙을 수도 있고, 뒤에 붙을 수도 있음.
+console.log(x++); // 2? 1! -> 2.
+// x++ => 이게 호출되고 나서 대입
+// x를 먼저 호출하고, ++을 처리함
+console.log(++x); // 3
+console.log(--x); // 2
+console.log(x--); // 1? 2!
+// 대입연산자 계열이지만 바로 연산에 투입 (+=, = <- 바로 출력이나 값으로 넣을 순 없음)
+// 헷갈리는게 싫으면 (바깥에서 처리를 하고)
+x++;
+console.log(x); // 호출하는데 안넣으면 된다
+
+console.log("---");
+console.log("|| 전", x);
+true || x++; // 이런식에 구문을 만들었다
+console.log("|| 후", x);
+console.log("|| 전", x);
+false || x++; // 이런식에 구문을 만들었다
+console.log("|| 후", x);
+
+console.log("&& 전", x);
+true && x++; // 이런식에 구문을 만들었다
+console.log("&& 후", x);
+console.log("&& 전", x);
+false && x++; // 이런식에 구문을 만들었다
+console.log("&& 후", x);
+
+function login() {
+  console.log("login");
+  return false;
+}
+function session() {
+  console.log("session");
+}
+
+login() && session();
+
+// 삼항 연산자 - 일반적으로 연산자는 1~2개까지 피연산자(항)
+// (true, false) ? true일때 : false일때 -> 3개
+// 1 + 2 -> 1, 2 피연산자(항) 2개
+
+const age = 20;
+console.log(age >= 20 ? "음주 가능" : "음주 불가능");
+console.log(age < 20 ? "미성년자" : "성인");
+
+// && || -> 단축연산, 삼항연산자 -> react
+// <컴포넌트,페이지> 리터럴 값 취급 -> 보이고 말고를 흐름제어로 하는게 아니라
+// 이런 연산자들을 묶어서가지고 표현하고...
+// jsx, tsx 이쪽을 좀 해보신 분들은 (조건) ? (조건 만족했을 때 이런 컴포넌트) : 아닐 때는 비워둠 혹은 이런 컴포넌트...
+
+// 비트연산자는 일부러 안하는 것 (&& -> '&', ||)
+// null처리 관련된. .? ?? 일부러 생략 (굳이?)
+console.log(2 ** 3); // power 연산자 - 2 ^ 3
+console.log(2 ** 0.5);
+console.log(2 ** (1 / 3));
