@@ -14,3 +14,26 @@ console.log(bar); // bar <- 10
 foo = 100;
 // let foo; // Cannot redeclare block-scoped variable 'foo'.ts(2451)
 console.log(foo); // foo <- 100
+
+// const 키워드
+// 초기화 -> 재할당 X
+// const a; // 초기화(할당도 같이 해줘야함)
+// console.log(a); // Cannot access 'a' before initialization
+const a = 111;
+console.log(a);
+// const a = 123; // 재선언 X
+// a = 222; // Assignment to constant variable.
+// 1. 원주율, 자연계수 e - 변하면 안되는 값
+// 2. 객체를 다룰 때. 속도/안정성
+let o = { name: "will", age: 20 };
+console.log(o.name);
+o = 10; // 다른 값을 넣는다?
+console.log(o.name); // undefined
+// 변수는 재할당을 받을 수 있기 때문에 메모리상 가변적인 위치를 받음
+// 상수는 재할당이 안되기 때문에 메모리상 고정적인 길이. -> 약간의 최적화 기능도 한다
+// mutable, immutable ...
+
+// var (함수 스코프) <-> let, const (블록)
+// v = 1000;
+// var v = 100;
+// var v;
