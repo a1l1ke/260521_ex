@@ -37,3 +37,6 @@ console.log(o.name); // undefined
 // v = 1000;
 // var v = 100;
 // var v;
+
+let 돈 = 100;
+console.log(돈);
